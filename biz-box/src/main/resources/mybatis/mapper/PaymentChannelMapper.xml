@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.PaymentChannelMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.PaymentChannel">
+        <id column="ID" property="id" />
+        <result column="CHANNEL_NAME" property="channelName" />
+        <result column="CHANNEL_ID" property="channelId" />
+        <result column="MERCHANT_ID" property="merchantId" />
+        <result column="channel_type" property="channelType" />
+        <result column="SYNC_URL" property="syncUrl" />
+        <result column="ASYN_URL" property="asynUrl" />
+        <result column="PUBLIC_KEY" property="publicKey" />
+        <result column="PRIVATE_KEY" property="privateKey" />
+        <result column="CHANNEL_STATE" property="channelState" />
+        <result column="REVISION" property="revision" />
+        <result column="CREATED_BY" property="createdBy" />
+        <result column="CREATED_TIME" property="createdTime" />
+        <result column="UPDATED_BY" property="updatedBy" />
+        <result column="UPDATED_TIME" property="updatedTime" />
+        <result column="CHANNEL_URL" property="channelUrl" />
+        <result column="CLASS_ADDRES" property="classAddres" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, CHANNEL_NAME, CHANNEL_ID, MERCHANT_ID,channel_type, SYNC_URL, ASYN_URL, PUBLIC_KEY, PRIVATE_KEY, CHANNEL_STATE, REVISION,CHANNEL_URL, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, CLASS_ADDRES
+    </sql>
+
+</mapper>

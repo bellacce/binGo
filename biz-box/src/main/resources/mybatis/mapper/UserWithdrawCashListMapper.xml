@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.UserWithdrawCashListMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.UserWithdrawCashList">
+        <id column="id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="withdraw_way" property="withdrawWay"/>
+        <result column="withdraw_status" property="withdrawStatus"/>
+        <result column="number" property="number"/>
+        <result column="receivable_account" property="receivableAccount"/>
+        <result column="name" property="name"/>
+        <result column="address" property="address"/>
+        <result column="withdraw_fee" property="withdrawFee"/>
+        <result column="content" property="content"/>
+        <result column="verify_user" property="verifyUser"/>
+        <result column="action_user" property="actionUser"/>
+        <result column="action_at" property="actionAt"/>
+        <result column="sent_notice_at" property="sentNoticeAt"/>
+        <result column="create_at" property="createAt"/>
+        <result column="update_at" property="updateAt"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, uid, withdraw_way, withdraw_status, number, receivable_account, name, address, withdraw_fee, content,
+        verify_user, action_user, action_at, sent_notice_at, create_at, update_at, deleted
+    </sql>
+
+</mapper>

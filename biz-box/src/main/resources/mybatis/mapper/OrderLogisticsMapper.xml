@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.OrderLogisticsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.OrderLogistics">
+        <id column="orderlogistics_id" property="orderlogisticsId"/>
+        <result column="order_id" property="orderId"/>
+        <result column="express_no" property="expressNo"/>
+        <result column="consignee_realname" property="consigneeRealname"/>
+        <result column="consignee_telphone" property="consigneeTelphone"/>
+        <result column="consignee_address" property="consigneeAddress"/>
+        <result column="logistics_type" property="logisticsType"/>
+        <result column="logistics_fee" property="logisticsFee"/>
+        <result column="orderlogistics_status" property="orderlogisticsStatus"/>
+        <result column="logistics_result_last" property="logisticsResultLast"/>
+        <result column="logistics_result" property="logisticsResult"/>
+        <result column="logistics_create_time" property="logisticsCreateTime"/>
+        <result column="logistics_update_time" property="logisticsUpdateTime"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="delete_flag" property="deleteFlag"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        orderlogistics_id, order_id, express_no, consignee_realname, consignee_telphone, consignee_address,
+        logistics_type, logistics_fee, orderlogistics_status, logistics_result_last, logistics_result,
+        logistics_create_time, logistics_update_time, created_at, updated_at, delete_flag
+    </sql>
+
+</mapper>

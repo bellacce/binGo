@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.UserWinsConfigMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.UserWinsConfig">
+        <id column="id" property="id" />
+        <result column="user_id" property="userId" />
+        <result column="box_id" property="boxId" />
+        <result column="hign_probability" property="hignProbability" />
+        <result column="rarity_probability" property="rarityProbability" />
+        <result column="epic_probability" property="epicProbability" />
+        <result column="legend_probability" property="legendProbability" />
+        <result column="delete_flag" property="deleteFlag" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+        <result column="purchases_num" property="purchasesNum" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, user_id, box_id, hign_probability, rarity_probability, epic_probability, legend_probability, delete_flag, created_at, updated_at, purchases_num
+    </sql>
+
+</mapper>

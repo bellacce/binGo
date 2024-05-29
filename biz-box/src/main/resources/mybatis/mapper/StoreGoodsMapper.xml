@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.StoreGoodsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.StoreGoods">
+        <id column="goods_id" property="goodsId"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="title" property="title"/>
+        <result column="freight_id" property="freightId"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="line_price" property="linePrice"/>
+        <result column="sort" property="sort"/>
+        <result column="status" property="status"/>
+        <result column="stock_num" property="stockNum"/>
+        <result column="limit_num" property="limitNum"/>
+        <result column="goods_sales" property="goodsSales"/>
+        <result column="gift_growth" property="giftGrowth"/>
+        <result column="gift_point" property="giftPoint"/>
+        <result column="use_point_limit" property="usePointLimit"/>
+        <result column="low_stock" property="lowStock"/>
+        <result column="service_ids" property="serviceIds"/>
+        <result column="promotion_start_time" property="promotionStartTime"/>
+        <result column="promotion_end_time" property="promotionEndTime"/>
+        <result column="promotion_per_limit" property="promotionPerLimit"/>
+        <result column="goods_thumb" property="goodsThumb"/>
+        <result column="content" property="content"/>
+        <result column="md_content" property="mdContent"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="goods_cover" property="goodsCover"/>
+        <result column="goods_no" property="goodsNo"/>
+        <result column="goods_type" property="goodsType"/>
+        <result column="goods_video" property="goodsVideo"/>
+    </resultMap>
+
+    <resultMap id="goodsPromotionDto" type="com.wenhui.project.web.dto.GoodsPromotionDto">
+        <id column="goods_id" property="goodsId"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="title" property="title"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="content" property="content"/>
+        <result column="md_content" property="mdContent"/>
+        <result column="line_price" property="linePrice"/>
+        <result column="goods_thumb" property="goodsThumb"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        goods_id, goods_name, title, freight_id, goods_price, line_price, sort, status, stock_num, limit_num,
+        goods_sales, gift_growth, gift_point, use_point_limit, low_stock, service_ids, promotion_start_time,
+        promotion_end_time, promotion_per_limit, goods_thumb, content, md_content, created_at, updated_at, goods_cover,
+        goods_no, goods_type, goods_video
+    </sql>
+
+    <!--    查询单个商品信息-->
+    <select id="productDetails" resultMap="goodsPromotionDto" parameterType="java.lang.Integer">
+        SELECT goods_id, goods_name,content,md_content,title, goods_price, line_price, trim(BOTH '"' from goods_thumb) as goods_thumb
+        FROM store_goods
+        <where>
+            status = 1
+--             AND
+--             promotion_end_time >= NOW()
+            and
+            recommend=1
+            and goods_id=#{goodsId}
+            and delete_flag=0
+        </where>
+    </select>
+
+    <select id="goodsPromotion" resultMap="goodsPromotionDto">
+        SELECT goods_id, goods_name, title, goods_price, line_price, trim(BOTH '"' from goods_thumb) as goods_thumb
+        FROM store_goods
+        <where>
+            status = 1
+--             AND
+--             promotion_end_time >= NOW()
+            and
+            recommend=1
+            and is_box_good=0
+        </where>
+        <if test="type != null and type == 1">
+            limit 15
+        </if>
+    </select>
+
+</mapper>

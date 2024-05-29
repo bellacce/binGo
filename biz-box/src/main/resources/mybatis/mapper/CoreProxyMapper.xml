@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.CoreProxyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.CoreProxy">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="mobile" property="mobile" />
+        <result column="qq" property="qq" />
+        <result column="live_address" property="liveAddress" />
+        <result column="invite_code" property="inviteCode" />
+        <result column="cus_id" property="cusId" />
+        <result column="extension_scale" property="extensionScale" />
+        <result column="version" property="version" />
+        <result column="extension_withdraw" property="extensionWithdraw" />
+        <result column="extension_withdrawing" property="extensionWithdrawing" />
+        <result column="extension_freeze" property="extensionFreeze" />
+        <result column="extension_amount" property="extensionAmount" />
+        <result column="extension_status" property="extensionStatus" />
+        <result column="extension_rule" property="extensionRule" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+        <result column="password" property="password" />
+        <result column="weixin_url" property="weixinUrl" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, mobile, qq, live_address, invite_code, cus_id, extension_scale, version, extension_withdraw, extension_freeze, extension_amount, extension_status, extension_rule, created_at, updated_at, password, weixin_url
+    </sql>
+
+</mapper>

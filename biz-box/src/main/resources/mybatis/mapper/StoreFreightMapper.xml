@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.StoreFreightMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.StoreFreight">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="ship_place" property="shipPlace"/>
+        <result column="status" property="status"/>
+        <result column="postage_free" property="postageFree"/>
+        <result column="delivery_area" property="deliveryArea"/>
+        <result column="not_delivery" property="notDelivery"/>
+        <result column="freight_type" property="freightType"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, ship_place, status, postage_free, delivery_area, not_delivery, freight_type, created_at, updated_at
+    </sql>
+
+</mapper>

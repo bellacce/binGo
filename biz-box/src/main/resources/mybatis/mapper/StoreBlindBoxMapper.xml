@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.StoreBlindBoxMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.StoreBlindBox">
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="price" property="price"/>
+        <result column="status" property="status"/>
+        <result column="sort" property="sort"/>
+        <result column="buy_num" property="buyNum"/>
+        <result column="thumb" property="thumb"/>
+        <result column="goods_thumb" property="goodsThumb"/>
+        <result column="gift_point" property="giftPoint"/>
+        <result column="gift_growth" property="giftGrowth"/>
+        <result column="content" property="content"/>
+        <result column="md_content" property="mdContent"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <resultMap id="StoreBlindBoxDto" type="com.wenhui.project.web.dto.StoreBlindBoxDto">
+        <result column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="price" property="price"/>
+        <result column="sort" property="sort"/>
+        <result column="thumb" property="thumb"/>
+        <result column="content" property="content"/>
+        <result column="md_content" property="mdContent"/>
+    </resultMap>
+
+    <resultMap id="StoreBlindBoxSingleDto" type="com.wenhui.project.web.dto.StoreBlindBoxSingleDto">
+        <result column="aid" property="id"/>
+        <result column="atitle" property="title"/>
+        <result column="aprice" property="price"/>
+        <result column="asort" property="sort"/>
+        <result column="athumb" property="thumb"/>
+        <result column="acontent" property="content"/>
+        <result column="amd_content" property="mdContent"/>
+        <collection property="blindboxGoods" ofType="com.wenhui.project.web.dto.StoreBlindboxGoodsDto"
+                    javaType="ArrayList">
+            <id column="id" property="id"/>
+            <result column="box_id" property="boxId"/>
+            <result column="name" property="name"/>
+            <result column="thumb" property="thumb"/>
+            <result column="pice" property="pice"/>
+<!--            <result column="carriage" property="carriage"/>-->
+            <result column="tag" property="tag"/>
+            <result column="tag_text" property="tagText"/>
+            <result column="goods_no" property="goodsNo"/>
+            <result column="sort" property="sort"/>
+        </collection>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, title, price, status,goods_thumb, sort, buy_num, thumb, gift_point, gift_growth, content, md_content, created_at,
+        updated_at
+    </sql>
+    <!--查询单个盲盒，并根据盲盒id进行关联查询商品-->
+    <select id="queryBlindBox" resultMap="StoreBlindBoxSingleDto" parameterType="java.lang.Integer">
+        SELECT
+        a.id aid,
+        a.title atitle,
+        a.price aprice,
+        a.sort asort,
+        a.thumb athumb,
+        a.content acontent,
+        a.md_content amd_content,
+        b.id id,
+        b.name name,
+        b.thumb thumb,
+        b.pice pice,
+        b.tag tag,
+        b.tag_text tag_text,
+        b.goods_no goods_no,
+        b.sort sort
+        FROM
+        store_blind_box AS a
+        RIGHT JOIN store_blindbox_goods AS b ON a.id = b.box_id
+        <where>
+            a.STATUS = 1
+            AND a.recommend = 1
+            and b.delete_flag=0
+            and b.status=1
+            and a.id=#{boxId}
+        </where>
+        ORDER BY b.pice DESC
+    </select>
+
+    <select id="queryHomeRecommend" resultMap="StoreBlindBoxDto">
+        select id,title,price,sort,trim(BOTH '"' FROM thumb) as thumb,content,md_content
+        from store_blind_box
+        <where>
+            status = 1
+            and
+            recommend=1
+        </where>
+        order by sort
+    </select>
+
+</mapper>

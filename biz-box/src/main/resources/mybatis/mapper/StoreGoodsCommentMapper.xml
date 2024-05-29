@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.StoreGoodsCommentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.StoreGoodsComment">
+        <id column="id" property="id"/>
+        <result column="uid" property="uid"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="order_goods_id" property="orderGoodsId"/>
+        <result column="num" property="num"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="sku" property="sku"/>
+        <result column="status" property="status"/>
+        <result column="goods_thumb" property="goodsThumb"/>
+        <result column="picture" property="picture"/>
+        <result column="member_name" property="memberName"/>
+        <result column="member_icon" property="memberIcon"/>
+        <result column="comment_rank" property="commentRank"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, uid, goods_id, order_goods_id, num, order_no, goods_name, sku, status, goods_thumb, picture, member_name,
+        member_icon, comment_rank, created_at, updated_at
+    </sql>
+
+</mapper>

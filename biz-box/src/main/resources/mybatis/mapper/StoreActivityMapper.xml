@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.StoreActivityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.StoreActivity">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="jump_type" property="jumpType"/>
+        <result column="thumb" property="thumb"/>
+        <result column="start_time" property="startTime"/>
+        <result column="app_id" property="appId"/>
+        <result column="sort" property="sort"/>
+        <result column="end_time" property="endTime"/>
+        <result column="status" property="status"/>
+        <result column="jump_url" property="jumpUrl"/>
+        <result column="remark" property="remark"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <resultMap id="storeActivityDto" type="com.wenhui.project.web.dto.StoreActivityDto">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="jump_type" property="jumpType"/>
+        <result column="thumb" property="imgFile"/>
+        <result column="sort" property="sort"/>
+        <result column="jump_url" property="jumpUrl"/>
+    </resultMap>
+
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, jump_type, thumb, start_time, app_id, sort, end_time, status, jump_url, remark, created_at, updated_at
+    </sql>
+
+    <!--    对thumb字段进行解析，然后去除前后引号，筛选只有启用状态下的数据可以被查询，最后通过sort字段进行排序-->
+    <select id="queryList" resultMap="storeActivityDto">
+        select id,name,jump_type,ifnull(trim(BOTH '"' FROM JSON_EXTRACT(thumb,'$[0].url')),'') as thumb,sort,jump_url
+        from store_activity where status=0 order by sort
+    </select>
+
+</mapper>

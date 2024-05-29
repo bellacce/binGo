@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.StoreBlindBoxRuleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.StoreBlindBoxRule">
+        <id column="id" property="id"/>
+        <result column="blind_box_id" property="blindBoxId"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="title" property="title"/>
+        <result column="rule_type" property="ruleType"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="draw_num" property="drawNum"/>
+        <result column="gift_point" property="giftPoint"/>
+        <result column="gift_growth" property="giftGrowth"/>
+        <result column="goods_name" property="goodsName"/>
+        <result column="goods_thumb" property="goodsThumb"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, blind_box_id, goods_id, title, rule_type, goods_price, draw_num, gift_point, gift_growth, goods_name,
+        goods_thumb, created_at, updated_at
+    </sql>
+
+</mapper>

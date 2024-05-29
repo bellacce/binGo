@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.CoreBoxProxyRuleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.CoreBoxProxyRule">
+        <id column="id" property="id" />
+        <result column="proxy_id" property="proxyId" />
+        <result column="one_probability" property="oneProbability" />
+        <result column="two_probability" property="twoProbability" />
+        <result column="three_probability" property="threeProbability" />
+        <result column="four_probability" property="fourProbability" />
+        <result column="five_probability" property="fiveProbability" />
+        <result column="ext_info" property="extInfo" />
+        <result column="created_at" property="createdAt" />
+        <result column="updated_at" property="updatedAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, proxy_id, one_probability, two_probability, three_probability, four_probability, five_probability, ext_info, created_at, updated_at
+    </sql>
+
+</mapper>

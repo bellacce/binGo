@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.OrderDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.OrderDetail">
+        <id column="order_detail_id" property="orderDetailId"/>
+        <result column="order_id" property="orderId"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="type" property="type"/>
+        <result column="product_name" property="productName"/>
+        <result column="product_price" property="productPrice"/>
+        <result column="number" property="number"/>
+        <result column="product_thumb" property="productThumb"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="delete_flag" property="deleteFlag"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        order_detail_id, order_id, goods_id, product_name, product_price, number, product_thumb, created_at, updated_at,
+        delete_flag
+    </sql>
+
+    <select id="orderRollList" resultType="com.wenhui.project.web.vo.OrderRollListVo">
+
+        select d.mobile mobile,a.created_at time,a.product_name name
+        from
+        order_detail a
+        left join
+        store_goods b
+        on a.goods_id = b.goods_id
+        left join
+        orders c
+        on c.order_id = a.order_id
+        left join
+        store_user d
+        on c.user_id = d.uid
+        where a.delete_flag=0 and b.is_box_good=1 and a.product_name!='盲盒'
+        order by a.created_at desc limit 100
+    </select>
+</mapper>

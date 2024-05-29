@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.CorePayRecordMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.CorePayRecord">
+        <id column="id" property="id" />
+        <result column="type" property="type" />
+        <result column="relate_id" property="relateId" />
+        <result column="mobile" property="mobile" />
+        <result column="name" property="name" />
+        <result column="amount" property="amount" />
+        <result column="created_at" property="createdAt" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, role_type, relate_id, mobile, name, amount, created_at
+    </sql>
+
+</mapper>

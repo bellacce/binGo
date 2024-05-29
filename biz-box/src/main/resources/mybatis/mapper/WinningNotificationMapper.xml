@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.WinningNotificationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.WinningNotification">
+        <id column="id" property="id"/>
+        <result column="notic_name" property="noticName"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+        <result column="delete_flag" property="deleteFlag"/>
+    </resultMap>
+
+    <resultMap id="WinningNotificationDto" type="com.wenhui.project.web.dto.WinningNotificationDto">
+        <id column="id" property="id"/>
+        <result column="notic_name" property="noticName"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, notic_name, created_at, updated_at, delete_flag
+    </sql>
+
+
+    <select id="queryNotice" resultMap="WinningNotificationDto" parameterType="java.lang.Integer">
+        select id,notic_name from winning_notification
+        <where>
+            delete_flag=0
+            and
+            notic_type=#{type}
+        </where>
+    </select>
+
+</mapper>

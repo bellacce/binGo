@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.StoreCouponUserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.StoreCouponUser">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="uid" property="uid"/>
+        <result column="coupon_id" property="couponId"/>
+        <result column="coupon_type" property="couponType"/>
+        <result column="code_no" property="codeNo"/>
+        <result column="coupon_amount" property="couponAmount"/>
+        <result column="full_amount" property="fullAmount"/>
+        <result column="effective_start_time" property="effectiveStartTime"/>
+        <result column="effective_end_time" property="effectiveEndTime"/>
+        <result column="status" property="status"/>
+        <result column="use_time" property="useTime"/>
+        <result column="remark" property="remark"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, uid, coupon_id, coupon_type, code_no, coupon_amount, full_amount, effective_start_time,
+        effective_end_time, status, use_time, remark, created_at, updated_at
+    </sql>
+
+</mapper>

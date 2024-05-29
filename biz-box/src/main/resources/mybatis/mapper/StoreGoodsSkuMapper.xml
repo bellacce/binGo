@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.StoreGoodsSkuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.StoreGoodsSku">
+        <id column="sku_id" property="skuId"/>
+        <result column="goods_id" property="goodsId"/>
+        <result column="spec_sku_id" property="specSkuId"/>
+        <result column="goods_no" property="goodsNo"/>
+        <result column="goods_thumb" property="goodsThumb"/>
+        <result column="goods_price" property="goodsPrice"/>
+        <result column="line_price" property="linePrice"/>
+        <result column="stock_num" property="stockNum"/>
+        <result column="goods_sales" property="goodsSales"/>
+        <result column="goods_weight" property="goodsWeight"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        sku_id, goods_id, spec_sku_id, goods_no, goods_thumb, goods_price, line_price, stock_num, goods_sales,
+        goods_weight, created_at, updated_at
+    </sql>
+
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wenhui.project.dal.mybatis.dao.PaymentMethodMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.wenhui.project.dal.mybatis.dataobject.PaymentMethod">
+        <id column="id" property="id" />
+        <result column="pay_name" property="payName" />
+        <result column="pay_id" property="payId" />
+        <result column="CHANNEL_ID" property="channelId" />
+        <result column="pay_state" property="payState" />
+        <result column="REVISION" property="revision" />
+        <result column="CREATED_BY" property="createdBy" />
+        <result column="CREATED_TIME" property="createdTime" />
+        <result column="UPDATED_BY" property="updatedBy" />
+        <result column="UPDATED_TIME" property="updatedTime" />
+        <result column="pay_rate" property="payRate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, pay_name, pay_id, CHANNEL_ID, pay_state, REVISION, CREATED_BY, CREATED_TIME, UPDATED_BY, UPDATED_TIME, pay_rate
+    </sql>
+
+</mapper>
